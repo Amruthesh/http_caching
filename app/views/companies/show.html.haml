@@ -1,0 +1,19 @@
+#navigation
+  %h2
+    = @company.name
+  %br
+  = link_to 'Edit', edit_company_path(@company)
+  \|
+  = link_to 'Back', companies_path
+
+#content
+  %h2
+    - if @company.employees.blank?
+      This company has no employees
+    - else
+      List of Employees belonging to company
+  %ul
+    - @company.employees.each do |employee|
+      %li
+        = employee.name
+  = link_to 'Add Employee', new_employee_path(company_id: @company.id)

@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @employee.name
+%p
+  %b Salary:
+  %br
+  Fixed : 
+  = @employee.fixed
+  %br
+  Variable : 
+  = @employee.variable
+
+= link_to 'Edit', edit_employee_path(@employee)
+\|
+= link_to 'Back', employees_path

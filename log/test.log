@@ -1,0 +1,775 @@
+  [1m[36m (125.6ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[36m (0.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (589.5ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (42.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (10.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateHstoreExtension (20130712090630)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (23.9ms)[0m  [1mCREATE EXTENSION hstore[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20130712090630"]]
+  [1m[36m (18.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCompanies (20130712090640)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+PG::Error: ERROR:  relation "companies" already exists
+: CREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (221.1ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (590.8ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (60.2ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (5008.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+PG::Error: ERROR:  database "http_caching_test" is being accessed by other users
+DETAIL:  There are 2 other session(s) using the database.
+: DROP DATABASE IF EXISTS "http_caching_test"
+  [1m[36m (220.4ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (607.6ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (59.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (214.1ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (607.5ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (42.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (117.8ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (566.0ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (42.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (215.8ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (590.8ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (59.7ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (120.9ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (582.6ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (53.5ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (114.0ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (574.4ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (61.3ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (5008.9ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+PG::Error: ERROR:  database "http_caching_test" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "http_caching_test"
+  [1m[36m (0.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (570.2ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (51.8ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (0.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (596.7ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (51.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+PG::Error: ERROR:  type "hstore" does not exist
+LINE 1: ...mary key, "name" character varying(255), "salary" hstore, "c...
+                                                             ^
+: CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (616.4ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (615.6ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (47.8ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (73.3ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (15.5ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:04', '2013-07-12 09:51:04', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:04', '2013-07-12 09:51:04', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:04', '2013-07-12 09:51:04', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:04', '2013-07-12 09:51:04', 298486374)[0m
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+CompaniesControllerTest: test_should_create_company
+---------------------------------------------------
+  [1m[36mCompany Load (1.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "companies"
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>"MyString"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00], ["name", "MyString"], ["updated_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/companies/980190963
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "companies"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------
+CompaniesControllerTest: test_should_destroy_company
+----------------------------------------------------
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "companies"
+Processing by CompaniesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/companies
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompaniesControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+Completed 500 Internal Server Error in 6ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by CompaniesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CompaniesControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by CompaniesController#new as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------
+CompaniesControllerTest: test_should_show_company
+-------------------------------------------------
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+CompaniesControllerTest: test_should_update_company
+---------------------------------------------------
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/companies/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------
+CompanyTest: test_company_should_have_a_name
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "companies" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00], ["updated_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------
+EmployeesControllerTest: test_should_create_employee
+----------------------------------------------------
+  [1m[36mEmployee Load (0.5ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "employees"
+Processing by EmployeesController#create as HTML
+  Parameters: {"employee"=>{"name"=>"MyString", "salary"=>nil}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "employees" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00], ["name", "MyString"], ["updated_at", Fri, 12 Jul 2013 09:51:04 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/employees/980190963
+Completed 302 Found in 18ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "employees"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------------
+EmployeesControllerTest: test_should_destroy_employee
+-----------------------------------------------------
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "employees"
+Processing by EmployeesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "employees" WHERE "employees"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/employees
+Completed 302 Found in 3ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "employees"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+EmployeesControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+Completed 500 Internal Server Error in 2ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+EmployeesControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[35mEmployee Load (0.3ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by EmployeesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+EmployeesControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", 980190962]]
+Processing by EmployeesController#new as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+EmployeesControllerTest: test_should_show_employee
+--------------------------------------------------
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by EmployeesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------
+EmployeesControllerTest: test_should_update_employee
+----------------------------------------------------
+  [1m[35mEmployee Load (0.2ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1  [["id", 980190962]]
+Processing by EmployeesController#update as HTML
+  Parameters: {"employee"=>{"name"=>"MyString", "salary"=>nil}, "id"=>"980190962"}
+  [1m[36mEmployee Load (0.2ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/employees/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (219.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (615.8ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (54.5ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (81.7ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (38.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.1ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:31', '2013-07-12 09:51:31', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:31', '2013-07-12 09:51:31', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:31', '2013-07-12 09:51:31', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:31', '2013-07-12 09:51:31', 298486374)[0m
+  [1m[35m (8.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+CompanyTest: test_company_should_have_a_name
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "companies" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:51:31 UTC +00:00], ["updated_at", Fri, 12 Jul 2013 09:51:31 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (113.9ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (615.8ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (53.0ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (106.8ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (9.1ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:46', '2013-07-12 09:51:46', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:51:46', '2013-07-12 09:51:46', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:46', '2013-07-12 09:51:46', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:51:46', '2013-07-12 09:51:46', 298486374)[0m
+  [1m[35m (9.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------------
+CompanyTest: test_company_should_have_a_name
+--------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "companies" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:51:46 UTC +00:00], ["updated_at", Fri, 12 Jul 2013 09:51:46 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (217.1ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (599.2ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (61.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (90.8ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (5.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (54.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.3ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:53:55', '2013-07-12 09:53:55', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:53:55', '2013-07-12 09:53:55', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:53:55', '2013-07-12 09:53:55', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:53:55', '2013-07-12 09:53:55', 298486374)[0m
+  [1m[35m (6.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------
+CompanyTest: test_company_should_have_a_name
+--------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (221.1ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (607.5ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (69.7ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (90.6ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (54.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (20.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (20.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (16.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:55:19', '2013-07-12 09:55:19', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:55:19', '2013-07-12 09:55:19', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:55:19', '2013-07-12 09:55:19', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:55:19', '2013-07-12 09:55:19', 298486374)[0m
+  [1m[35m (10.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:55:19 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 09:55:19 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (112.6ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (615.9ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (61.4ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (90.0ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (9.9ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:57:59', '2013-07-12 09:57:59', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:57:59', '2013-07-12 09:57:59', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:57:59', '2013-07-12 09:57:59', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:57:59', '2013-07-12 09:57:59', 298486374)[0m
+  [1m[35m (8.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:57:59 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 09:57:59 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "employees" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 09:57:59 UTC +00:00], ["updated_at", Fri, 12 Jul 2013 09:57:59 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (226.7ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (582.4ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (53.0ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (56.9ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (38.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:58:20', '2013-07-12 09:58:20', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 09:58:20', '2013-07-12 09:58:20', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:58:20', '2013-07-12 09:58:20', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 09:58:20', '2013-07-12 09:58:20', 298486374)[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 09:58:20 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 09:58:20 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (219.3ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (582.4ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (78.0ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (98.4ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (54.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.2ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:00:57', '2013-07-12 10:00:57', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:00:57', '2013-07-12 10:00:57', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.9ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:00:57', '2013-07-12 10:00:57', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:00:57', '2013-07-12 10:00:57', 298486374)[0m
+  [1m[35m (9.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+EmployeeTest: test_employee_can_be_created
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["company_id", 980190964], ["created_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00], ["name", "Amruthesh"], ["updated_at", Fri, 12 Jul 2013 10:00:57 UTC +00:00]]
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-12 10:00:57.770214' WHERE "companies"."id" = 980190964
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+EmployeeTest: test_employee_name_cannot_be_empty
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (217.9ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (615.8ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (46.0ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (73.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (38.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.6ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:01:13', '2013-07-12 10:01:13', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:01:13', '2013-07-12 10:01:13', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:01:13', '2013-07-12 10:01:13', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:01:13', '2013-07-12 10:01:13', 298486374)[0m
+  [1m[35m (3.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+EmployeeTest: test_employee_can_be_created
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["company_id", 980190964], ["created_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00], ["name", "Amruthesh"], ["updated_at", Fri, 12 Jul 2013 10:01:13 UTC +00:00]]
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-12 10:01:13.242554' WHERE "companies"."id" = 980190964
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+EmployeeTest: test_employee_name_cannot_be_empty
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (215.8ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (616.0ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (69.6ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (81.7ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (7.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.5ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:02:01', '2013-07-12 10:02:01', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:02:01', '2013-07-12 10:02:01', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:02:01', '2013-07-12 10:02:01', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:02:01', '2013-07-12 10:02:01', 298486374)[0m
+  [1m[35m (10.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------
+EmployeeTest: test_employee_can_be_created
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["company_id", 980190964], ["created_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00], ["name", "Amruthesh"], ["updated_at", Fri, 12 Jul 2013 10:02:01 UTC +00:00]]
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-12 10:02:01.665494' WHERE "companies"."id" = 980190964
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+EmployeeTest: test_employee_name_cannot_be_empty
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (221.2ms)[0m  [1mDROP DATABASE IF EXISTS "http_caching_test"[0m
+  [1m[35m (607.4ms)[0m  CREATE DATABASE "http_caching_test" ENCODING = 'utf8'
+  [1m[36m (44.7ms)[0m  [1mCREATE TABLE "companies" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (98.5ms)[0m  CREATE TABLE "employees" ("id" serial primary key, "name" character varying(255), "salary" hstore, "created_at" timestamp, "updated_at" timestamp, "company_id" integer) 
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (46.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712092308')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090630')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712090826')
+  [1m[36m (8.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712090640')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.2ms)[0m  ALTER TABLE "employees" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "companies" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "companies"
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:02:08', '2013-07-12 10:02:08', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2013-07-12 10:02:08', '2013-07-12 10:02:08', 298486374)
+  [1m[36mFixture Delete (1.4ms)[0m  [1mDELETE FROM "employees"[0m
+  [1m[35mFixture Insert (1.6ms)[0m  INSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:02:08', '2013-07-12 10:02:08', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "employees" ("name", "salary", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-07-12 10:02:08', '2013-07-12 10:02:08', 298486374)[0m
+  [1m[35m (9.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "employees" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "companies" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------
+CompanyTest: test_can_create_a_company
+--------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+CompanyTest: test_company_name_cnnot_be_blank
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+------------------------------------------
+EmployeeTest: test_employee_can_be_created
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "companies" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00], ["name", "Tavant Technologies"], ["updated_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["company_id", 980190964], ["created_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00], ["name", "Amruthesh"], ["updated_at", Fri, 12 Jul 2013 10:02:08 UTC +00:00]]
+  [1m[36mCompany Load (0.9ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-12 10:02:08.435650' WHERE "companies"."id" = 980190964
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------------
+EmployeeTest: test_employee_has_to_belong_to_a_company
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+EmployeeTest: test_employee_name_cannot_be_empty
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
