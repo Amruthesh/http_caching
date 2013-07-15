@@ -45,7 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Generate HAML in scaffolds
-gem 'haml-rails', :group => :development 
+gem 'haml-rails', group: [ :development, :test] 
 
 # Use postgresql for storing data
 gem 'pg'

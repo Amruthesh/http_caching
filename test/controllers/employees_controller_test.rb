@@ -2,6 +2,7 @@ require 'test_helper'
 
 class EmployeesControllerTest < ActionController::TestCase
   setup do
+    @company = companies(:one)
     @employee = employees(:one)
   end
 
@@ -18,10 +19,10 @@ class EmployeesControllerTest < ActionController::TestCase
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post :create, employee: { name: @employee.name, salary: @employee.salary }
+      post :create, employee: { name: @employee.name, salary: { fixed: @employee.fixed, variable: @employee.variable }, company_id: @company.id }
     end
 
-    assert_redirected_to employee_path(assigns(:employee))
+    assert_redirected_to company_path(id: @company.id)
   end
 
   test "should show employee" do
@@ -35,8 +36,8 @@ class EmployeesControllerTest < ActionController::TestCase
   end
 
   test "should update employee" do
-    patch :update, id: @employee, employee: { name: @employee.name, salary: @employee.salary }
-    assert_redirected_to employee_path(assigns(:employee))
+    patch :update, id: @employee, employee: { name: 'Name changed', company_id: @company.id }
+    assert_redirected_to employee_path(id: @employee.id)
   end
 
   test "should destroy employee" do

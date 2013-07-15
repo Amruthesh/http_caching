@@ -10,7 +10,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-    expires_in 10.minutes, public: true
+    # Use this when the content is static and can be fetched directly from the cache
+    #expires_in 5.minutes
     
     if stale? etag: @company, last_modified: @company.updated_at
       respond_to do |format|

@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  salary: 
+  salary:
+    fixed: 50
+    variable: 10
 
 two:
   name: MyString
-  salary: 
+  salary:
+    fixed: 50
+    variable: 10

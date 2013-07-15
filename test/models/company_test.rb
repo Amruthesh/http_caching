@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CompanyTest < ActiveSupport::TestCase
   
-  test 'company name cnnot be blank' do
+  test 'company name cannot be blank' do
     @company = Company.new
     @company.save
     assert !@company.errors.blank?, 'Company name cannot be blank'

@@ -2592,3 +2592,771 @@ Processing by CompaniesController#index as HTML
   [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
   Rendered companies/index.html.haml within layouts/application (2.8ms)
 Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:31:28 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (8.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (83.9ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (114.2ms)
+Completed 200 OK in 345ms (Views: 183.3ms | ActiveRecord: 97.4ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2013-07-15 15:31:34 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCompany Load (1.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+Completed 304 Not Modified in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:31:37 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:31:39 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEmployee Load (14.1ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (69.4ms)
+Completed 200 OK in 79ms (Views: 59.3ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:31:56 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/employees/new?company_id=1" for 127.0.0.1 at 2013-07-15 15:32:20 +0530
+Processing by EmployeesController#new as HTML
+  Parameters: {"company_id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered employees/_form.html.haml (42.4ms)
+  Rendered employees/new.html.haml within layouts/application (46.0ms)
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2013-07-15 15:32:32 +0530
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RIyZuiID14intesrYvtm05zbc4c0zwaBDQinlHNg8dk=", "employee"=>{"company_id"=>"1", "name"=>"Nan", "fixed"=>"100", "variable"=>"20"}, "commit"=>"Save"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (54.8ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:02:32 UTC +00:00], ["name", "Nan"], ["salary", {"fixed"=>"100", "variable"=>"20"}], ["updated_at", Mon, 15 Jul 2013 10:02:32 UTC +00:00]]
+  [1m[36mCompany Load (0.8ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-15 10:02:33.053279' WHERE "companies"."id" = 1
+  [1m[36m (12.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 78ms (ActiveRecord: 69.0ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEmployee Load (0.7ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:32:33 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:32:48 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 304 Not Modified in 18ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-15 15:36:00 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:36:17 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:36:23 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 304 Not Modified in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:36:42 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:36:43 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:37:05 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (14.5ms)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:37:06 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/employees/new?company_id=1" for 127.0.0.1 at 2013-07-15 15:37:28 +0530
+Processing by EmployeesController#new as HTML
+  Parameters: {"company_id"=>"1"}
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered employees/_form.html.haml (5.3ms)
+  Rendered employees/new.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 35ms (Views: 11.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/employees" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+Processing by EmployeesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RIyZuiID14intesrYvtm05zbc4c0zwaBDQinlHNg8dk=", "employee"=>{"company_id"=>"1", "name"=>"Nana", "fixed"=>"50.0", "variable"=>"0.75"}, "commit"=>"Save"}
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:07:41 UTC +00:00], ["name", "Nana"], ["salary", {"fixed"=>"50.0", "variable"=>"0.75"}], ["updated_at", Mon, 15 Jul 2013 10:07:41 UTC +00:00]]
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-15 10:07:41.356956' WHERE "companies"."id" = 1
+  [1m[36m (34.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 43ms (ActiveRecord: 35.8ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEmployee Load (1.1ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (8.5ms)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:37:41 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:37:54 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:37:57 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEmployee Load (1.1ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (8.0ms)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:38:11 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:38:12 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:38:37 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (13.8ms)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:38:41 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:38:49 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:38:58 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:39:15 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:39:21 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:39:30 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:39:52 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (13.9ms)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:39:57 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:40:01 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:40:13 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:40:17 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:11:41 UTC +00:00], ["name", "cons"], ["salary", {:fixed=>100, :variable=>5}], ["updated_at", Mon, 15 Jul 2013 10:11:41 UTC +00:00]]
+  [1m[36mCompany Load (1.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-15 10:11:41.587252' WHERE "companies"."id" = 1
+  [1m[36m (10.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT 1
+  [1m[36mEmployee Load (12.7ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1 ORDER BY "employees"."id" DESC LIMIT 1[0m  [["company_id", 1]]
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT 1
+  [1m[36mEmployee Load (1.3ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:07 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/2" for 127.0.0.1 at 2013-07-15 15:42:09 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "2"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:10 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:24 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (13.9ms)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:30 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:35 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:38 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:42 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1/edit" for 127.0.0.1 at 2013-07-15 15:42:50 +0530
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered companies/_form.html.haml (3.4ms)
+  Rendered companies/edit.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/companies/1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+Processing by CompaniesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RIyZuiID14intesrYvtm05zbc4c0zwaBDQinlHNg8dk=", "company"=>{"name"=>"Tavant Technologies"}, "commit"=>"Save", "id"=>"1"}
+  [1m[35mCompany Load (2.7ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/companies/1
+Completed 302 Found in 8ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEmployee Load (0.7ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (59.1ms)
+Completed 200 OK in 66ms (Views: 62.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:42:51 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:42:57 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:13:05 UTC +00:00], ["name", "conso"], ["salary", {:fixed=>100, :variable=>5}], ["updated_at", Mon, 15 Jul 2013 10:13:05 UTC +00:00]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "companies" SET "updated_at" = '2013-07-15 10:13:05.555964' WHERE "companies"."id" = 1[0m
+  [1m[35m (26.9ms)[0m  COMMIT
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:43:07 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEmployee Load (1.1ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (8.1ms)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:43:11 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:43:14 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:43:16 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:43:23 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.5ms)
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:14:19 UTC +00:00], ["name", "consol"], ["salary", {:fixed=>100, :variable=>5}], ["updated_at", Mon, 15 Jul 2013 10:14:19 UTC +00:00]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "companies" SET "updated_at" = '2013-07-15 10:14:19.035649' WHERE "companies"."id" = 1[0m
+  [1m[35m (7.8ms)[0m  COMMIT
+  [1m[36mCompany Load (0.6ms)[0m  [1mSELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT 1[0m
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:44:29 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEmployee Load (1.1ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (12.1ms)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 1.6ms)
+  [1m[35mCompany Load (0.5ms)[0m  SELECT "companies".* FROM "companies" ORDER BY "companies"."id" ASC LIMIT 1
+  [1m[36mEmployee Load (1.0ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:45:34 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:45:49 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:45:50 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:46:30 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 304 Not Modified in 17ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:46:31 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:46:33 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:16:45 UTC +00:00], ["name", "console"], ["salary", {:fixed=>100, :variable=>5}], ["updated_at", Mon, 15 Jul 2013 10:16:45 UTC +00:00]]
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "companies" SET "updated_at" = '2013-07-15 10:16:45.691507' WHERE "companies"."id" = 1[0m
+  [1m[35m (15.1ms)[0m  COMMIT
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:46:49 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:47:07 +0530
+Processing by CompaniesController#index as HTML
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies"
+  Rendered companies/index.html.haml within layouts/application (13.9ms)
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (1.7ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mEmployee Load (0.7ms)[0m  SELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (24.5ms)
+Completed 200 OK in 35ms (Views: 27.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/employees.css?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/companies.css?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/assets/companies.js?body=1" for 127.0.0.1 at 2013-07-15 15:47:20 +0530
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:47:28 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:47:33 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:47:39 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.5ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:47:45 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 304 Not Modified in 4ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "employees" ("company_id", "created_at", "name", "salary", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["company_id", 1], ["created_at", Mon, 15 Jul 2013 10:18:08 UTC +00:00], ["name", "consoles"], ["salary", {:fixed=>100, :variable=>5}], ["updated_at", Mon, 15 Jul 2013 10:18:08 UTC +00:00]]
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "companies" SET "updated_at" = '2013-07-15 10:18:08.827449' WHERE "companies"."id" = 1
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/companies" for 127.0.0.1 at 2013-07-15 15:48:12 +0530
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.4ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/index.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2013-07-15 15:48:12 +0530
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mEmployee Load (0.9ms)[0m  [1mSELECT "employees".* FROM "employees" WHERE "employees"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered companies/show.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 15ms (Views: 11.2ms | ActiveRecord: 1.4ms)
